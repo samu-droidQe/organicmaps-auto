@@ -24,10 +24,15 @@ steps:
 
   - name: Build Debug APK
     working-directory: android
-    run: ./gradlew assembleDebug --stacktrace
+    run: ./gradlew assembleFdroidDebug --stacktrace
+
+  - name: Stage APK
+    run: |
+      mkdir -p staging
+      cp android/app/build/outputs/apk/fdroid/debug/*.apk staging/
 
   - name: Upload APK
     uses: actions/upload-artifact@v4
     with:
-      name: organicmaps-debug
-      path: android/app/build/outputs/apk/**/*.apk
+      name: organicmaps-fdroid-debug
+      path: staging/*.apk
