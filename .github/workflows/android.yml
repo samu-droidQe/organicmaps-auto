@@ -24,7 +24,7 @@ steps:
 
   - name: Build Debug APK
     working-directory: android
-    run: ./gradlew assembleFdroidDebug -PtargetNDKArchs=armeabi-v7a -PtargetNDKArchs=armeabi-v7a --stacktrace
+    run: ./gradlew assembleFdroidDebug -PtargetNDKArchs=armeabi-v7a --stacktrace
 
   - name: Stage APK
     run: |
